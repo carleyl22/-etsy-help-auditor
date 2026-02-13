@@ -16,15 +16,16 @@ from auditor import (
 )
 
 
-def get_secret(key: str, default: str = "") -> str:
-    """Get secret from Streamlit secrets or environment variable."""
-    # Try Streamlit secrets first (for cloud deployment)
-    try:
-        return st.secrets.get(key, "")
-    except Exception:
-        pass
-    # Fall back to environment variable (for local development)
-    return os.getenv(key, default)
+ def get_secret(key: str, default: str = "") -> str:                           
+      """Get secret from Streamlit secrets or environment variable."""          
+      # Try Streamlit secrets first (for cloud deployment)                      
+      try:                                                                      
+          if key in st.secrets:                                                 
+              return st.secrets[key]                                            
+      except Exception:                                                         
+          pass                                                                  
+      # Fall back to environment variable (for local development)               
+      return os.getenv(key, default) 
 
 # Page config
 st.set_page_config(
