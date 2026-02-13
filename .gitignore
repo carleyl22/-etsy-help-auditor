@@ -1,0 +1,28 @@
+# Environment variables (IMPORTANT: never commit secrets!)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+test_audit.py
+
+# Streamlit secrets (set in cloud dashboard instead)
+.streamlit/secrets.toml
